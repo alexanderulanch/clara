@@ -1,0 +1,6 @@
+twilio
+openai
+transformers
+flask
+torch
+torchvision
