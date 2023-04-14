@@ -10,7 +10,7 @@ summarization_model = BartForConditionalGeneration.from_pretrained(
 )
 
 
-def process_conversation_history(conversation, threshold=31000):
+def process_conversation_history(conversation, threshold=3900):
     formatted_messages = "\n".join(
         [f"{role}: {message}" for role, message in conversation]
     )
@@ -36,7 +36,7 @@ def process_conversation_history(conversation, threshold=31000):
     return summarized_messages
 
 
-def generate_response(conversation, model="gpt-4-32k", max_tokens=50, temperature=0.5):
+def generate_response(conversation, model="gpt-4", max_tokens=50, temperature=0.5):
     processed_conversation = process_conversation_history(conversation)
     formatted_messages = [
         {"role": role, "content": message} for role, message in processed_conversation

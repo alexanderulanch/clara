@@ -7,19 +7,24 @@ app = Flask(__name__)
 conversation_history = []
 
 
+# @app.route("/sms", methods=["POST"])
+# def sms_reply():
+#     global conversation_history
+
+#     incoming_message = request.form.get("Body")
+#     conversation_history.append(("user", incoming_message))
+
+#     gpt4_response = generate_response(conversation_history)
+#     conversation_history.append(("assistant", gpt4_response))
+
+#     twilio_response = MessagingResponse()
+#     twilio_response.message(gpt4_response)
+#     return str(twilio_response)
+
+
 @app.route("/sms", methods=["POST"])
 def sms_reply():
-    global conversation_history
-
-    incoming_message = request.form.get("Body")
-    conversation_history.append(("user", incoming_message))
-
-    gpt4_response = generate_response(conversation_history)
-    conversation_history.append(("assistant", gpt4_response))
-
-    twilio_response = MessagingResponse()
-    twilio_response.message(gpt4_response)
-    return str(twilio_response)
+    return "Hello from Clara!"
 
 
 if __name__ == "__main__":
